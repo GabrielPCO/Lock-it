@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "386050018064",
+    "firebase_url": "https://authentication-lockit.firebaseio.com",
+    "project_id": "authentication-lockit",
+    "storage_bucket": "authentication-lockit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386050018064:android:4ab9367c2bbca2a0",
+        "android_client_info": {
+          "package_name": "com.example.gabrielfreitas.nac_1_lockit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386050018064-qq1d78uq8batkg0okvrkbj0kq8l61l8q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gabrielfreitas.nac_1_lockit",
+            "certificate_hash": "e205fc7daa89ba7a2913b5c881f5cc96d150e7be"
+          }
+        },
+        {
+          "client_id": "386050018064-bi91n72oe5rcqg0tv1rrmpjj51vvbg8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb_KUeFMGJei4fIcDOjDjvLdgk8opmzIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386050018064-bi91n72oe5rcqg0tv1rrmpjj51vvbg8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

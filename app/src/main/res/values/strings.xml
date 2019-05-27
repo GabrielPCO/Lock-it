@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">nac_1_lockit</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="on">Abre</string>
+    <string name="off">Fecha</string>
+    <string name="disconect">desconectar</string>
+    <string name="refresh">Buscar</string>
+
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="first_name">Nome</string>
+    <string name="last_name">Sobrenome</string>
+    <string name="login_title">Entrar</string>
+    <string name="create_act">Criar conta</string>
+
+    <string name="etEmail">E-mail</string>
+    <string name="etPassword">Senha</string>
+    <string name="send_password_reset_email">Reenviar senha por e-mail</string>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gabrielfreitas.nac_1_lockit.seleciona_armario">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="159dp">
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:id="@+id/textView"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecione seu Armário" />
+
+        <TextView
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:id="@+id/textView2"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clique em um armário a sua escolha" />
+
+        <ImageView
+            android:id="@+id/armario1"
+            android:layout_width="328dp"
+            android:layout_height="164dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/armario1"
+            tools:context="com.example.gabrielfreitas.primeiroapp.Main4Activity" />
+
+        <ImageView
+            android:id="@+id/armario2"
+            android:layout_width="328dp"
+            android:layout_height="164dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-30dp"
+            app:srcCompat="@drawable/armario2" />
+
+        <ImageView
+            android:id="@+id/armario3"
+            android:layout_width="328dp"
+            android:layout_height="164dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-30dp"
+            app:srcCompat="@drawable/armario3" />
+
+        <TextView
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:id="@+id/textView3"
+
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Armário verde - Liberado" />
+
+        <TextView
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:id="@+id/textView4"
+
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Armário vermelho - Ocupado" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
