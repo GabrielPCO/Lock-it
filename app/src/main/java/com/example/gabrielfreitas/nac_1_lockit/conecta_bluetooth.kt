@@ -7,8 +7,10 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_conecta_bluetooth.*
 import org.jetbrains.anko.toast
 
@@ -17,6 +19,7 @@ class conecta_bluetooth : AppCompatActivity() {
     private var  m_bluetoothAdapter: BluetoothAdapter? = null
     private lateinit var m_pairedDevices: Set<BluetoothDevice>
     private val REQUEST_ENABLE_BLUETOOTH = 1
+    private var btnVoltar: Button? = null
 
     companion object {
         val EXTRA_ADDRESS: String = "Device_address"
@@ -27,6 +30,8 @@ class conecta_bluetooth : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conecta_bluetooth)
         m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+        btnVoltar = findViewById<View>(R.id.btn_voltar) as Button
+        btnVoltar!!.setOnClickListener { updateUserInfoAndUI() }
         if(m_bluetoothAdapter == null) {
             toast("Dispositivo não encontrado")
             return
@@ -79,5 +84,11 @@ class conecta_bluetooth : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun updateUserInfoAndUI() {
+        //start next activity
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 }
