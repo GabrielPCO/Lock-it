@@ -64,7 +64,8 @@ class conecta_bluetooth : AppCompatActivity() {
             val device: BluetoothDevice = list[position]
             val address: String = device.address
             val intent = Intent(this,seleciona_armario::class.java)
-            intent.putExtra(EXTRA_ADDRESS,address)
+            val intent2 = Intent(this,abre_armario::class.java)
+            intent2.putExtra(EXTRA_ADDRESS,address)
             startActivity(intent)
         }
     }
