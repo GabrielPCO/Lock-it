@@ -18,24 +18,22 @@
         tools:layout_editor_absoluteY="159dp">
 
         <TextView
-            android:textSize="20dp"
             android:layout_marginTop="30dp"
             android:textAlignment="center"
             android:id="@+id/textView"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selecione seu Armário" />
+            android:text="@string/selecione" />
 
         <TextView
-            android:textSize="15dp"
             android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:id="@+id/textView2"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clique em um armário a sua escolha" />
+            android:text="@string/arm_escolha" />
 
         <ImageView
             android:id="@+id/armario1"
@@ -43,6 +41,7 @@
             android:layout_height="164dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/armario1"
             tools:context="com.example.gabrielfreitas.primeiroapp.Main4Activity" />
 
@@ -52,6 +51,7 @@
             android:layout_height="164dp"
             android:layout_gravity="center"
             android:layout_marginTop="-30dp"
+            android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/armario2" />
 
         <ImageView
@@ -60,10 +60,10 @@
             android:layout_height="164dp"
             android:layout_gravity="center"
             android:layout_marginTop="-30dp"
+            android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/armario3" />
 
         <TextView
-            android:textSize="15dp"
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:id="@+id/textView3"
@@ -71,10 +71,9 @@
             android:textColor="@android:color/holo_green_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Armário verde - Liberado" />
+            android:text="@string/arm_verde" />
 
         <TextView
-            android:textSize="15dp"
             android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:id="@+id/textView4"
@@ -82,7 +81,7 @@
             android:textColor="@android:color/holo_red_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Armário vermelho - Ocupado" />
+            android:text="@string/arm_vermelho" />
 
     </LinearLayout>
 

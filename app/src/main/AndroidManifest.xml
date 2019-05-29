@@ -18,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="true">
 
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
@@ -28,7 +29,17 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/gizmos" />
+                <!-- note that the leading "/" is required for pathPrefix-->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data android:scheme="example"
+                    android:host="gizmos" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -43,8 +54,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity android:name=".tela_login"/>
         <activity android:name=".LogInScreen"/>
         <activity android:name=".ForgotPassword"/>
         <activity android:name=".RegistrationScreen"/>
@@ -54,7 +63,7 @@
         <activity android:name=".seleciona_armario" />
         <activity android:name=".conecta_bluetooth" />
         <activity android:name=".ScannerQr" />
-        <activity android:name=".abre_armario"></activity>
+        <activity android:name=".abre_armario"/>
     </application>
 
 </manifest>

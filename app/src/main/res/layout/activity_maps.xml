@@ -6,43 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.example.gabrielfreitas.nac_1_lockit.conecta_bluetooth">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.gabrielfreitas.nac_1_lockit.MapsActivity"/>
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.gabrielfreitas.nac_1_lockit.MapsActivity"/>
 
-        <TextView
-            android:textSize="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:textAlignment="center"
-            android:id="@+id/textView5"
-            style="@style/viewCustom"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:text="Selecione o armário mais próximo no mapa"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textAlignment="center"
+                android:id="@+id/textView5"
+                style="@style/viewCustom"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:text="@string/proximo"
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
-        <Button
-            android:id="@+id/btn_sign_out"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Deslogar"
-            style="@style/viewCustom"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginStart="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"/>
+            <Button
+                android:id="@+id/btn_sign_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/deslogar"
+                style="@style/viewCustom"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"/>
 
 </android.support.constraint.ConstraintLayout>

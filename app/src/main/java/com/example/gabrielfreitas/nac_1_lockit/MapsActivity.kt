@@ -47,7 +47,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setOnMarkerClickListener{ it: Marker? ->
+        mMap.setOnMarkerClickListener{ _: Marker? ->
             val intent = Intent(this,conecta_bluetooth::class.java)
             startActivity(intent)
             true
