@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
+import android.util.Log
 import com.google.zxing.integration.android.IntentIntegrator
 import android.widget.Toast
 
@@ -14,9 +14,7 @@ class ScannerQr : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
 
-        val imageButton = findViewById<ImageButton>(R.id.btn_voltar)
-        imageButton?.setOnClickListener { updateUI() }
-
+        Log.d("ScannerQr","On Create")
         val scanner = IntentIntegrator(this)
         scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
         scanner.setBeepEnabled(false)
@@ -24,6 +22,7 @@ class ScannerQr : AppCompatActivity(){
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.d("ScannerQr","On Activity Result")
         if(resultCode == Activity.RESULT_OK){
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
             if (result != null) {
@@ -48,7 +47,9 @@ class ScannerQr : AppCompatActivity(){
         }
     }
 
-    private fun updateUI() {
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("ScannerQr","On Restart")
         val intent = Intent(this, SelecionaArmario::class.java)
         startActivity(intent)
     }
