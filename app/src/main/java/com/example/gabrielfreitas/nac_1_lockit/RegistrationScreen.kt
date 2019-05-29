@@ -1,19 +1,17 @@
 package com.example.gabrielfreitas.nac_1_lockit
 
-import android.app.ProgressDialog
+//import android.app.ProgressDialog
 import android.content.Intent
-import android.widget.EditText
-import android.widget.Button
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_login_screen.*
 
 class RegistrationScreen : AppCompatActivity() {
 
@@ -23,7 +21,7 @@ class RegistrationScreen : AppCompatActivity() {
     private var etEmail: EditText? = null
     private var etPassword: EditText? = null
     private var btnCreateAccount: Button? = null
-    private var mProgressBar: ProgressDialog? = null
+    //private var mProgressBar: ProgressDialog? = null
 
     //Firebase references
     private var mDatabaseReference: DatabaseReference? = null
@@ -53,7 +51,7 @@ class RegistrationScreen : AppCompatActivity() {
         etEmail = findViewById<View>(R.id.et_email) as? EditText
         etPassword = findViewById<View>(R.id.et_password) as? EditText
         btnCreateAccount = findViewById<View>(R.id.btn_register) as? Button
-        mProgressBar = ProgressDialog(this)
+        //mProgressBar = ProgressDialog(this)
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
@@ -69,13 +67,15 @@ class RegistrationScreen : AppCompatActivity() {
         if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName)
                 && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
-            mProgressBar!!.setMessage("Registrando Usuário...")
-            mProgressBar!!.show()
+            progress.visibility = ProgressBar.VISIBLE
+            //mProgressBar!!.setMessage("Registrando Usuário...")
+            //mProgressBar!!.show()
 
             mAuth!!
                     .createUserWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener(this) { task ->
-                        mProgressBar!!.hide()
+                        progress.visibility = ProgressBar.INVISIBLE
+                        //mProgressBar!!.hide()
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success")

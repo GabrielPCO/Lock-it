@@ -9,7 +9,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
+//import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
@@ -47,15 +47,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setOnMarkerClickListener{ _: Marker? ->
-            val intent = Intent(this,conecta_bluetooth::class.java)
+        mMap.setOnMarkerClickListener{ /*_: Marker? ->*/
+            val intent = Intent(this,ConectaBluetooth::class.java)
             startActivity(intent)
             true
         }
         // Add a marker in Sydney and move the camera
         val fiap = LatLng(-23.573977, -46.623195)
-        val MarkerOptions = MarkerOptions().position(fiap).title("FIAP").icon(BitmapDescriptorFactory.fromResource(R.drawable.pointer))
-        mMap.addMarker(MarkerOptions)
+        val markerOptions = MarkerOptions().position(fiap).title("FIAP").icon(BitmapDescriptorFactory.fromResource(R.drawable.pointer))
+        mMap.addMarker(markerOptions)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fiap,17f))
     }
 }

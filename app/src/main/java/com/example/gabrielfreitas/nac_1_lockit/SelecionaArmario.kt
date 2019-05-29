@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_seleciona_armario.*
 import org.jetbrains.anko.toast
 
-class seleciona_armario : AppCompatActivity() {
+class SelecionaArmario : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

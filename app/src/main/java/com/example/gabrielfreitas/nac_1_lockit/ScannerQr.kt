@@ -29,16 +29,16 @@ class ScannerQr : AppCompatActivity(){
             if (result != null) {
                 if (result.contents == null) {
                     Toast.makeText(this, "Operação Cancelada", Toast.LENGTH_LONG).show()
-                    val nextAct1 = Intent(this, seleciona_armario::class.java)
+                    val nextAct1 = Intent(this, SelecionaArmario::class.java)
                     startActivity(nextAct1)
                 } else {
                     if(result.contents == "SENHA") {
                         Toast.makeText(this, "Abertura Autorizada", Toast.LENGTH_LONG).show()
-                        val nextAct1 = Intent(this, abre_armario::class.java)
+                        val nextAct1 = Intent(this, AbreArmario::class.java)
                         startActivity(nextAct1)
                     }else {
                         Toast.makeText(this, "QRcode Inválido!", Toast.LENGTH_LONG).show()
-                        val nextAct1 = Intent(this, seleciona_armario::class.java)
+                        val nextAct1 = Intent(this, SelecionaArmario::class.java)
                         startActivity(nextAct1)
                     }
                 }
@@ -49,7 +49,7 @@ class ScannerQr : AppCompatActivity(){
     }
 
     private fun updateUI() {
-        val intent = Intent(this, seleciona_armario::class.java)
+        val intent = Intent(this, SelecionaArmario::class.java)
         startActivity(intent)
     }
 }

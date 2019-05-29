@@ -10,10 +10,10 @@ import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashActivity : AppCompatActivity() {
     private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000 //3 seconds
-    val ANIMATION_DURATION:Long = 1000
+    private val splashDelay: Long = 3000 //3 seconds
+    private val animationDuration:Long = 1000
 
-    internal val mRunnable: Runnable = Runnable {
+    private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
 
             val intent = Intent(applicationContext, LogInScreen::class.java)
@@ -32,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
         mDelayHandler = Handler()
 
         //Navigate with delay
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
+        mDelayHandler!!.postDelayed(mRunnable, splashDelay)
 
     }
 
@@ -54,7 +54,7 @@ class SplashActivity : AppCompatActivity() {
             imageView.scaleY = value
         }
         valueAnimator.interpolator = BounceInterpolator()
-        valueAnimator.duration = ANIMATION_DURATION
+        valueAnimator.duration = animationDuration
 
         // Start animation.
         valueAnimator.start()

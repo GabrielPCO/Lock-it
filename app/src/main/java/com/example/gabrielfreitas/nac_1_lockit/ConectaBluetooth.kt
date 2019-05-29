@@ -14,13 +14,13 @@ import kotlinx.android.synthetic.main.activity_conecta_bluetooth.*
 import org.jetbrains.anko.toast
 
 
-class conecta_bluetooth : AppCompatActivity() {
+class ConectaBluetooth : AppCompatActivity() {
     private var  m_bluetoothAdapter: BluetoothAdapter? = null
     private lateinit var m_pairedDevices: Set<BluetoothDevice>
     private val REQUEST_ENABLE_BLUETOOTH = 1
 
     companion object {
-        val EXTRA_ADDRESS: String = "Device_address"
+        const val EXTRA_ADDRESS: String = "Device_address"
 
     }
 
@@ -50,7 +50,7 @@ class conecta_bluetooth : AppCompatActivity() {
         m_pairedDevices = m_bluetoothAdapter!!.bondedDevices
         val list : ArrayList<BluetoothDevice> = ArrayList()
 
-        if(!m_pairedDevices.isEmpty()){
+        if(m_pairedDevices.isNotEmpty()){
             for(device: BluetoothDevice in m_pairedDevices){
                 list.add(device)
                 Log.i("device",""+device)
@@ -64,8 +64,8 @@ class conecta_bluetooth : AppCompatActivity() {
         select_device_list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             val device: BluetoothDevice = list[position]
             val address: String = device.address
-            val intent = Intent(this,seleciona_armario::class.java)
-            val intent2 = Intent(this,abre_armario::class.java)
+            val intent = Intent(this,SelecionaArmario::class.java)
+            val intent2 = Intent(this,AbreArmario::class.java)
             intent2.putExtra(EXTRA_ADDRESS,address)
             startActivity(intent)
         }

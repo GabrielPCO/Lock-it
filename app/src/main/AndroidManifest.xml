@@ -60,10 +60,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".seleciona_armario" />
-        <activity android:name=".conecta_bluetooth" />
+        <activity android:name=".SelecionaArmario" />
+        <activity android:name=".ConectaBluetooth" />
         <activity android:name=".ScannerQr" />
-        <activity android:name=".abre_armario"/>
+        <activity android:name=".AbreArmario"/>
     </application>
 
 </manifest>

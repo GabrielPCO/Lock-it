@@ -1,7 +1,7 @@
 package com.example.gabrielfreitas.nac_1_lockit
 
 import android.app.AlertDialog
-import android.app.ProgressDialog
+//import android.app.ProgressDialog
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
@@ -11,14 +11,16 @@ import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+//import android.widget.ProgressBar
+//import kotlinx.android.synthetic.main.activity_login_screen.*
 import java.io.IOException
 import java.util.*
 
-class abre_armario : AppCompatActivity() {
+class AbreArmario : AppCompatActivity() {
     companion object {
         var m_myUUID: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
         var m_bluetoothSocket: BluetoothSocket? = null
-        lateinit var m_progress: ProgressDialog
+        //lateinit var m_progress: ProgressDialog
         lateinit var  m_bluetoothAdapter: BluetoothAdapter
         var m_isConnected: Boolean =  false
         lateinit var  m_address: String
@@ -27,7 +29,7 @@ class abre_armario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_abre_armario)
-        m_address = intent.getStringExtra(conecta_bluetooth.EXTRA_ADDRESS)
+        m_address = intent.getStringExtra(ConectaBluetooth.EXTRA_ADDRESS)
 
         ConnectToDevice(this ).execute()
 
@@ -61,7 +63,7 @@ class abre_armario : AppCompatActivity() {
 
     private fun chamarAlert() {
 
-        var alertDialog = AlertDialog.Builder(this)
+        val alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle("Abrindo armário...") // O Titulo da notificação
         alertDialog.setMessage("Aguarde um momento") // a mensagem ou alerta
         alertDialog.show()
@@ -93,10 +95,11 @@ class abre_armario : AppCompatActivity() {
 
 
 
-        override fun onPreExecute() {
+        /*override fun onPreExecute() {
             super.onPreExecute()
-            m_progress = ProgressDialog.show(context,"Conectando...", "Aguarde um momento")
-        }
+            //progress.visibility = ProgressBar.VISIBLE
+            //m_progress = ProgressDialog.show(context,"Conectando...", "Aguarde um momento")
+        }*/
 
         override fun doInBackground(vararg p0: Void?): String? {
             try {
@@ -124,7 +127,8 @@ class abre_armario : AppCompatActivity() {
             }else{
                 m_isConnected = true
             }
-            m_progress.dismiss()
+            //progress.visibility = ProgressBar.INVISIBLE
+            //m_progress.dismiss()
         }
 
     }
