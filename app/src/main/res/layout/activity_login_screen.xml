@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="236dp"
@@ -13,9 +15,11 @@
             app:srcCompat="@drawable/logo"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"/>
         <EditText
             android:id="@+id/et_email"
+            android:layout_below="@+id/imageView"
             style="@style/viewCustom"
             android:hint="@string/etEmail"
             android:ems="10"
@@ -23,6 +27,7 @@
             android:inputType="textEmailAddress" />
         <EditText
             android:id="@+id/et_password"
+            android:layout_below="@+id/et_email"
             style="@style/viewCustom"
             android:ems="10"
             android:hint="@string/etPassword"
@@ -30,6 +35,7 @@
             android:inputType="textPassword" />
             <TextView
                 android:id="@+id/tv_forgot_password"
+                android:layout_below="@+id/et_password"
                 style="@style/viewCustom"
                 android:clickable="true"
                 android:focusable="true"
@@ -38,6 +44,7 @@
                 android:textSize="20sp" />
         <Button
             android:id="@+id/btn_login"
+            android:layout_below="@+id/tv_forgot_password"
             style="@style/viewCustom"
             android:background="@color/colorPrimary"
             android:text="@string/login_title"
@@ -45,9 +52,24 @@
             android:textStyle="bold" />
         <Button
             android:id="@+id/btn_register_account"
+            android:layout_below="@+id/btn_login"
             style="@style/viewCustom"
             android:background="@color/colorPrimary"
             android:text="@string/create_act"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
-    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:visibility="gone" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
