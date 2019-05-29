@@ -26,6 +26,6 @@
     <string name="proximo">Selecione o ícone de armário mais próximo no mapa</string>
     <string name="arm_verde">Armário verde - Liberado</string>
     <string name="arm_vermelho">Armário vermelho - Ocupado</string>
-    <string name="arm_escolha">Clique em um armário a sua escolha</string>
-    <string name="selecione">Selecione seu Armário</string>
+    <string name="selecione">Selecione uma Gaveta\nClique em uma gaveta livre a sua escolha!</string>
+    <string name="dica_mapa">Digite o Endereço, Cidade ou Código Postal</string>
 </resources>

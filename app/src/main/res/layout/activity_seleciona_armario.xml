@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="340dp"
             android:layout_marginStart="340dp"
             android:background="@null"
@@ -31,32 +31,28 @@
             tools:layout_editor_absoluteY="4dp" />
 
         <TextView
-            android:layout_marginTop="30dp"
-            android:textAlignment="center"
             android:id="@+id/textView"
-
-            android:layout_width="match_parent"
+            style="@style/viewCustom"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/selecione" />
-
-        <TextView
-            android:layout_marginTop="5dp"
+            android:layout_alignBottom="@+id/btn_voltar"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:lines="2"
+            android:text="@string/selecione"
             android:textAlignment="center"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/arm_escolha" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/armario1"
             android:layout_width="328dp"
             android:layout_height="164dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="70dp"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/textView"
             app:srcCompat="@drawable/armario1"
             tools:context="com.example.gabrielfreitas.primeiroapp.Main4Activity" />
 

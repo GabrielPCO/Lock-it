@@ -27,6 +27,10 @@
             android:layout_height="20dp"
             android:text="@string/confirmacao"
             android:textAlignment="center"
+            style="@style/viewCustom"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
