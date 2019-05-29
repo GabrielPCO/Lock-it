@@ -1,17 +1,14 @@
 package com.example.gabrielfreitas.nac_1_lockit
 
-import android.app.ProgressDialog
 import android.content.Intent
-import android.widget.EditText
-import android.widget.Button
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login_screen.*
 
 class LogInScreen: AppCompatActivity() {
 
@@ -25,7 +22,6 @@ class LogInScreen: AppCompatActivity() {
     private var etPassword: EditText? = null
     private var btnLogin: Button? = null
     private var btnCreateAccount: Button? = null
-    private var mProgressBar: ProgressDialog? = null
     //Firebase references
     private var mAuth: FirebaseAuth? = null
 
@@ -42,7 +38,7 @@ class LogInScreen: AppCompatActivity() {
         etPassword = findViewById<View>(R.id.et_password) as EditText
         btnLogin = findViewById<View>(R.id.btn_login) as Button
         btnCreateAccount = findViewById<View>(R.id.btn_register_account) as Button
-        mProgressBar = ProgressDialog(this)
+        //mProgressBar = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
         tvForgotPassword!!
                 .setOnClickListener { startActivity(Intent(this,
@@ -57,12 +53,11 @@ class LogInScreen: AppCompatActivity() {
         email = etEmail?.text.toString()
         password = etPassword?.text.toString()
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-            mProgressBar!!.setMessage("Entrando...")
-            mProgressBar!!.show()
+            progress.visibility = ProgressBar.VISIBLE
             Log.d(TAG, "Logging in user.")
             mAuth!!.signInWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener(this) { task ->
-                        mProgressBar!!.hide()
+                        progress.visibility = ProgressBar.INVISIBLE
                         if (task.isSuccessful) {
                             // Sign in success, update UI with signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
