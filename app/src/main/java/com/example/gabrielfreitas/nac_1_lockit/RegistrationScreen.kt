@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -22,7 +23,6 @@ class RegistrationScreen : AppCompatActivity() {
     private var etEmail: EditText? = null
     private var etPassword: EditText? = null
     private var btnCreateAccount: Button? = null
-    private var btnVoltar: Button? = null
     private var mProgressBar: ProgressDialog? = null
 
     //Firebase references
@@ -41,6 +41,9 @@ class RegistrationScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration_screen)
 
+        val imageButton = findViewById<ImageButton>(R.id.btn_voltar)
+        imageButton?.setOnClickListener { updateUserInfoAndUI() }
+
         initialise()
     }
 
@@ -50,13 +53,11 @@ class RegistrationScreen : AppCompatActivity() {
         etEmail = findViewById<View>(R.id.et_email) as? EditText
         etPassword = findViewById<View>(R.id.et_password) as? EditText
         btnCreateAccount = findViewById<View>(R.id.btn_register) as? Button
-        btnVoltar = findViewById<View>(R.id.btn_voltar) as? Button
         mProgressBar = ProgressDialog(this)
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
         btnCreateAccount!!.setOnClickListener { createNewAccount() }
-        btnVoltar!!.setOnClickListener { updateUserInfoAndUI() }
     }
 
     private fun createNewAccount() {
@@ -80,7 +81,7 @@ class RegistrationScreen : AppCompatActivity() {
                             Log.d(TAG, "createUserWithEmail:success")
                             val userId = mAuth!!.currentUser!!.uid
                             //Verify Email
-                            verifyEmail();
+                            verifyEmail()
                             //update user profile information
                             val currentUserDb = mDatabaseReference!!.child(userId)
                             currentUserDb.child("firstName").setValue(firstName)
@@ -89,7 +90,7 @@ class RegistrationScreen : AppCompatActivity() {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                            Toast.makeText(this, "Falha de Autenticação.",
+                            Toast.makeText(this, "Falha de Autenticação. Verifique seu e-mail e/ou senha",
                                     Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -107,7 +108,7 @@ class RegistrationScreen : AppCompatActivity() {
     }
 
     private fun verifyEmail() {
-        val mUser = mAuth!!.currentUser;
+        val mUser = mAuth!!.currentUser
         mUser!!.sendEmailVerification()
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {

@@ -8,7 +8,7 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,6 +16,20 @@
         android:layout_marginEnd="15dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="159dp">
+
+        <ImageButton
+            android:id="@+id/btn_voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="340dp"
+            android:layout_marginStart="340dp"
+            android:background="@null"
+            android:contentDescription="@string/voltar"
+            app:srcCompat="@drawable/delete"
+            tools:layout_editor_absoluteX="392dp"
+            tools:layout_editor_absoluteY="4dp" />
 
         <TextView
             android:layout_marginTop="30dp"
@@ -30,7 +44,7 @@
             android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:id="@+id/textView2"
-
+            android:layout_below="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/arm_escolha" />
@@ -41,7 +55,9 @@
             android:layout_height="164dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
             android:contentDescription="@string/app_name"
+            android:layout_below="@+id/textView2"
             app:srcCompat="@drawable/armario1"
             tools:context="com.example.gabrielfreitas.primeiroapp.Main4Activity" />
 
@@ -50,8 +66,10 @@
             android:layout_width="328dp"
             android:layout_height="164dp"
             android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="-30dp"
             android:contentDescription="@string/app_name"
+            android:layout_below="@+id/armario1"
             app:srcCompat="@drawable/armario2" />
 
         <ImageView
@@ -59,7 +77,9 @@
             android:layout_width="328dp"
             android:layout_height="164dp"
             android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="-30dp"
+            android:layout_below="@+id/armario2"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/armario3" />
 
@@ -67,7 +87,7 @@
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:id="@+id/textView3"
-
+            android:layout_below="@+id/armario3"
             android:textColor="@android:color/holo_green_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,12 +97,12 @@
             android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:id="@+id/textView4"
-
+            android:layout_below="@+id/textView3"
             android:textColor="@android:color/holo_red_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/arm_vermelho" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

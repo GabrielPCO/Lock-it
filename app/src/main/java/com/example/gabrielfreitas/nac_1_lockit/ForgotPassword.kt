@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,21 +17,22 @@ class ForgotPassword :  AppCompatActivity(){
     //UI elements
     private var etEmail: EditText? = null
     private var btnSubmit: Button? = null
-    private var btnVoltar: Button? = null
     //Firebase references
     private var mAuth: FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
+
+        val imageButton = findViewById<ImageButton>(R.id.btn_voltar)
+        imageButton?.setOnClickListener { updateUI() }
+
         initialise()
     }
     private fun initialise() {
         etEmail = findViewById<View>(R.id.et_email) as EditText
         btnSubmit = findViewById<View>(R.id.btn_submit) as Button
-        btnVoltar = findViewById<View>(R.id.btn_voltar) as Button
         mAuth = FirebaseAuth.getInstance()
         btnSubmit!!.setOnClickListener { sendPasswordResetEmail() }
-        btnVoltar!!.setOnClickListener { updateUI() }
     }
 
     private fun sendPasswordResetEmail() {

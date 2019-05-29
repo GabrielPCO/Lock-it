@@ -7,8 +7,8 @@
     <string name="deslogar">Deslogar</string>
     <string name="refresh">Buscar</string>
 
-    <string name="email">E-mail</string>
-    <string name="password">Senha</string>
+    <string name="email">E-mail (exemplo@exemplo.com.br)</string>
+    <string name="password">Senha (Deve ter pelo menos 6 caracteres)</string>
     <string name="first_name">Nome</string>
     <string name="last_name">Sobrenome</string>
     <string name="login_title">Entrar</string>
@@ -23,7 +23,7 @@
     <string name="prosseguir">Insira ou Retire seu item\ne feche a porta do armário\npara prosseguir!</string>
     <string name="voltar">voltar</string>
     <string name="esqueceu">Esqueceu a senha?</string>
-    <string name="proximo">Selecione o armário mais próximo no mapa</string>
+    <string name="proximo">Selecione o ícone de armário mais próximo no mapa</string>
     <string name="arm_verde">Armário verde - Liberado</string>
     <string name="arm_vermelho">Armário vermelho - Ocupado</string>
     <string name="arm_escolha">Clique em um armário a sua escolha</string>

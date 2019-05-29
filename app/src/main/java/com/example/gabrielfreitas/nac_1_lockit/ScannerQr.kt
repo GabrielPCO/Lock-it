@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import com.google.zxing.integration.android.IntentIntegrator
 import android.widget.Toast
 
@@ -12,6 +13,9 @@ class ScannerQr : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
+
+        val imageButton = findViewById<ImageButton>(R.id.btn_voltar)
+        imageButton?.setOnClickListener { updateUI() }
 
         val scanner = IntentIntegrator(this)
         scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
@@ -42,6 +46,11 @@ class ScannerQr : AppCompatActivity(){
                 super.onActivityResult(requestCode, resultCode, data)
             }
         }
+    }
+
+    private fun updateUI() {
+        val intent = Intent(this, seleciona_armario::class.java)
+        startActivity(intent)
     }
 }
 

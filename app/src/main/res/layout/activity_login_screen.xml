@@ -14,40 +14,40 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"/>
-    <EditText
-        android:id="@+id/et_email"
-        style="@style/viewCustom"
-        android:hint="@string/etEmail"
-        android:ems="10"
-        tools:ignore="Autofill"
-        android:inputType="textEmailAddress" />
-    <EditText
-        android:id="@+id/et_password"
-        style="@style/viewCustom"
-        android:ems="10"
-        android:hint="@string/etPassword"
-        tools:ignore="Autofill"
-        android:inputType="textPassword" />
-        <TextView
-            android:id="@+id/tv_forgot_password"
+        <EditText
+            android:id="@+id/et_email"
             style="@style/viewCustom"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:text="@string/esqueceu"
-            android:textSize="20sp" />
-    <Button
-        android:id="@+id/btn_login"
-        style="@style/viewCustom"
-        android:background="@color/colorPrimary"
-        android:text="@string/login_title"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-    <Button
-        android:id="@+id/btn_register_account"
-        style="@style/viewCustom"
-        android:background="@color/colorPrimary"
-        android:text="@string/create_act"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+            android:hint="@string/etEmail"
+            android:ems="10"
+            tools:ignore="Autofill"
+            android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/viewCustom"
+            android:ems="10"
+            android:hint="@string/etPassword"
+            tools:ignore="Autofill"
+            android:inputType="textPassword" />
+            <TextView
+                android:id="@+id/tv_forgot_password"
+                style="@style/viewCustom"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:text="@string/esqueceu"
+                android:textSize="20sp" />
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/viewCustom"
+            android:background="@color/colorPrimary"
+            android:text="@string/login_title"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btn_register_account"
+            style="@style/viewCustom"
+            android:background="@color/colorPrimary"
+            android:text="@string/create_act"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
     </LinearLayout>
