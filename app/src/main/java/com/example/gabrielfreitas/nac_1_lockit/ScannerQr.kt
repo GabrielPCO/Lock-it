@@ -33,12 +33,12 @@ class ScannerQr : AppCompatActivity(){
                 } else {
                     if(result.contents == "SENHA") {
                         Toast.makeText(this, "Abertura Autorizada", Toast.LENGTH_LONG).show()
-                        val nextAct1 = Intent(this, AbreArmario::class.java)
-                        startActivity(nextAct1)
+                        val nextAct2 = Intent(this, ConectaBluetooth::class.java)
+                        startActivity(nextAct2)
                     }else {
                         Toast.makeText(this, "QRcode Inválido!", Toast.LENGTH_LONG).show()
-                        val nextAct1 = Intent(this, SelecionaArmario::class.java)
-                        startActivity(nextAct1)
+                        val nextAct3 = Intent(this, SelecionaArmario::class.java)
+                        startActivity(nextAct3)
                     }
                 }
             } else {
@@ -47,11 +47,11 @@ class ScannerQr : AppCompatActivity(){
         }
     }
 
-    override fun onRestart() {
+    /*override fun onRestart() {
         super.onRestart()
         Log.d("ScannerQr","On Restart")
         val intent = Intent(this, SelecionaArmario::class.java)
         startActivity(intent)
-    }
+    }*/
 }
 

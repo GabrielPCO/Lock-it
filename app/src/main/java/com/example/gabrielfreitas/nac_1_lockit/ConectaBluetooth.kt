@@ -64,9 +64,8 @@ class ConectaBluetooth : AppCompatActivity() {
         select_device_list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             val device: BluetoothDevice = list[position]
             val address: String = device.address
-            val intent = Intent(this,SelecionaArmario::class.java)
-            val intent2 = Intent(this,AbreArmario::class.java)
-            intent2.putExtra(EXTRA_ADDRESS,address)
+            val intent = Intent(this,AbreArmario::class.java)
+            intent.putExtra(EXTRA_ADDRESS,address)
             startActivity(intent)
         }
     }
@@ -90,7 +89,7 @@ class ConectaBluetooth : AppCompatActivity() {
 
    private fun updateUserInfoAndUI() {
         //start next activity
-        val intent = Intent(this, MapsActivity::class.java)
+        val intent = Intent(this, AbreArmario::class.java)
         startActivity(intent)
     }
 }

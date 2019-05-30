@@ -24,8 +24,8 @@ class SelecionaArmario : AppCompatActivity() {
             toast("Armario Ocupado")
         }
         armario3.setOnClickListener{
-            val nextAct1 =  Intent(this,ScannerQr::class.java)
-            startActivity(nextAct1)
+            val nextAct2 =  Intent(this,ScannerQr::class.java)
+            startActivity(nextAct2)
         }
     }
 
