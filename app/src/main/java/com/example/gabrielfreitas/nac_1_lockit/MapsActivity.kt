@@ -3,6 +3,8 @@ package com.example.gabrielfreitas.nac_1_lockit
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -21,10 +23,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private var mAuth: FirebaseAuth? = null
+    private var isConnected: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        val imageButton = findViewById<ImageButton>(R.id.btn_login)
+        imageButton?.setOnClickListener { updateUI() }
+
+        if (!isConnected) {
+            isConnected = intent.getBooleanExtra("etConnected",false)
+            if(isConnected){
+                btn_sign_out.visibility = View.VISIBLE
+            }else{
+                btn_sign_out.visibility = View.GONE
+            }
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -32,10 +47,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         btn_sign_out.setOnClickListener {
-            toast("Deslogando...")
-            mAuth?.signOut()
-            val nextAct1 =  Intent(this,LogInScreen::class.java)
-            startActivity(nextAct1) }
+                toast("Deslogando...")
+                isConnected=false
+                mAuth?.signOut()
+                val nextAct1 = Intent(this, MapsActivity::class.java)
+                startActivity(nextAct1)
+        }
     }
 
     /**
@@ -49,10 +66,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setOnMarkerClickListener{ /*_: Marker? ->*/
-            val intent = Intent(this,SelecionaArmario::class.java)
-            startActivity(intent)
-            true
+        mMap.setOnMarkerClickListener {
+            /*_: Marker? ->*/
+            if(isConnected) {
+                val intent = Intent(this, SelecionaArmario::class.java)
+                startActivity(intent)
+                true
+            }else{
+                toast("Por favor, faça seu Login!")
+                false
+            }
         }
         // Add a marker in Sydney and move the camera
         val fiap = LatLng(-23.573977, -46.623195)
@@ -60,6 +83,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(markerOptions)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fiap,17f))
 
+    }
+
+    private fun updateUI() {
+        //start next activity
+        val intent = Intent(this, LogInScreen::class.java)
+        startActivity(intent)
     }
 
 }

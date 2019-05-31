@@ -16,6 +16,11 @@ class LogInScreen: AppCompatActivity() {
     //global variables
     private var email: String? = null
     private var password: String? = null
+
+    companion object {
+        private var etConnected: Boolean? = null
+    }
+
     //UI elements
     private var tvForgotPassword: TextView? = null
     private var etEmail: EditText? = null
@@ -28,6 +33,9 @@ class LogInScreen: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
+
+        val imageButton = findViewById<ImageButton>(R.id.btn_voltar)
+        imageButton?.setOnClickListener { updateUI() }
 
         initialise()
     }
@@ -53,15 +61,19 @@ class LogInScreen: AppCompatActivity() {
         email = etEmail?.text.toString()
         password = etPassword?.text.toString()
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+            btn_voltar.visibility = View.GONE
             progress.visibility = ProgressBar.VISIBLE
             Log.d(TAG, "Logging in user.")
             mAuth!!.signInWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener(this) { task ->
                         progress.visibility = ProgressBar.INVISIBLE
+                        btn_voltar.visibility = View.VISIBLE
                         if (task.isSuccessful) {
                             // Sign in success, update UI with signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
-                            updateUI()
+                            val intent2 = Intent(this, MapsActivity::class.java)
+                            intent2.putExtra("etConnected",true)
+                            startActivity(intent2)
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.exception)
