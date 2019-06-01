@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-        <FrameLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <TextView
                 android:id="@+id/gradiente"
@@ -20,9 +18,9 @@
                 android:layout_width="354dp"
                 android:layout_height="80dp"
                 android:contentDescription="@string/app_name"
-                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 app:srcCompat="@drawable/logo"
-                android:layout_marginTop="270dp"
                 />
 
-        </FrameLayout>
+</RelativeLayout>

@@ -16,10 +16,7 @@ class LogInScreen: AppCompatActivity() {
     //global variables
     private var email: String? = null
     private var password: String? = null
-
-    companion object {
-        private var etConnected: Boolean? = null
-    }
+    private var etConnected: Boolean? = false
 
     //UI elements
     private var tvForgotPassword: TextView? = null
@@ -73,6 +70,8 @@ class LogInScreen: AppCompatActivity() {
                             Log.d(TAG, "signInWithEmail:success")
                             val intent2 = Intent(this, MapsActivity::class.java)
                             intent2.putExtra("etConnected",true)
+                            etConnected=true
+                            intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(intent2)
                         } else {
                             // If sign in fails, display a message to the user.
@@ -89,7 +88,9 @@ class LogInScreen: AppCompatActivity() {
 
     private fun updateUI() {
         val intent = Intent(this, MapsActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        if(etConnected==true){
+            intent.putExtra("etConnected",true)
+        }
         startActivity(intent)
     }
 

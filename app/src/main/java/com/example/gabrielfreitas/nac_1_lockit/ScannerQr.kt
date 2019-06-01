@@ -33,7 +33,7 @@ class ScannerQr : AppCompatActivity(){
                 } else {
                     if(result.contents == "SENHA") {
                         Toast.makeText(this, "Abertura Autorizada", Toast.LENGTH_LONG).show()
-                        val nextAct2 = Intent(this, ConectaBluetooth::class.java)
+                        val nextAct2 = Intent(this, ConectaDireto::class.java)
                         startActivity(nextAct2)
                     }else {
                         Toast.makeText(this, "QRcode Inválido!", Toast.LENGTH_LONG).show()

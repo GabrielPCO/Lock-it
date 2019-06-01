@@ -9,6 +9,7 @@ import org.jetbrains.anko.toast
 
 class SelecionaArmario : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seleciona_armario)
@@ -31,6 +32,7 @@ class SelecionaArmario : AppCompatActivity() {
 
     private fun updateUI() {
         val intent = Intent(this, MapsActivity::class.java)
+        intent.putExtra("etConnected",true)
         startActivity(intent)
     }
 }

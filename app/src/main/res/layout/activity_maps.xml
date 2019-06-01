@@ -11,29 +11,72 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.gabrielfreitas.nac_1_lockit.MapsActivity"
-        />
+        tools:context="com.example.gabrielfreitas.nac_1_lockit.MapsActivity" />
 
         <ImageButton
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-80dp"
-            android:layout_marginLeft="-80dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="-40dp"
-            android:layout_marginRight="-40dp"
+            android:layout_marginStart="-100dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:layout_toEndOf="@+id/map"
             android:layout_toRightOf="@+id/map"
+            android:layout_below="@id/textView5"
+
+            android:layout_alignEnd="@+id/textView5"
+            android:layout_alignRight="@+id/textView5"
+
             android:background="@null"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/ic_icon" />
 
+    <ImageButton
+        android:id="@+id/lucas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_marginStart="-100dp"
+        android:layout_marginLeft="-100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_toEndOf="@+id/map"
+        android:layout_toRightOf="@+id/map"
+
+        android:background="@null"
+        android:contentDescription="@string/app_name"
+        android:visibility="gone"
+        app:srcCompat="@drawable/lucas" />
+
+            <Button
+                android:id="@+id/textView6"
+                style="@style/viewCustom"
+                android:layout_width="58dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/btn_login"
+                android:layout_alignStart="@+id/btn_login"
+                android:layout_alignLeft="@+id/btn_login"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/logar"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:lines="2"
                 android:id="@+id/textView5"
                 style="@style/viewCustom"
                 android:background="@color/colorPrimary"
@@ -52,6 +95,20 @@
         android:layout_marginBottom="675dp"
         android:background="@color/colorPrimary"
         android:text="@string/deslogar"
+        android:visibility="visible"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_sair"
+        style="@style/viewCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/map"
+        android:layout_marginBottom="675dp"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        android:text="@string/off"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 

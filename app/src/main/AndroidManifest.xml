@@ -64,6 +64,8 @@
         <activity android:name=".ConectaBluetooth" />
         <activity android:name=".ScannerQr" />
         <activity android:name=".AbreArmario"/>
+        <activity android:name=".ConectaDireto"/>
+        <activity android:name=".ArmarioAberto"/>
     </application>
 
 </manifest>

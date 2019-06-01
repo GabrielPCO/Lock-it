@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">lock.it</string>
     <string name="title_activity_maps">Map</string>
-    <string name="on">Abre</string>
-    <string name="off">Fecha</string>
+    <string name="on">Abrir</string>
+    <string name="off">Fechar</string>
     <string name="disconect">desconectar</string>
     <string name="deslogar">Deslogar</string>
     <string name="refresh">Buscar</string>
+    <string name="logar">Logar</string>
 
     <string name="email">E-mail (exemplo@exemplo.com.br)</string>
-    <string name="password">Senha (Deve ter pelo menos 6 caracteres)</string>
+    <string name="password">Senha (Min. 6 caracteres)</string>
     <string name="first_name">Nome</string>
     <string name="last_name">Sobrenome</string>
     <string name="login_title">Entrar</string>
@@ -19,13 +20,13 @@
     <string name="send_password_reset_email">Reenviar senha por e-mail</string>
 
     <string name="confirmacao">Confirme seu Armário na Lista Abaixo</string>
-    <string name="pronto">Seu armário está pronto</string>
-    <string name="prosseguir">Insira ou Retire seu item\ne feche a porta do armário\npara prosseguir!</string>
+    <string name="pronto">Seu armário está pronto!</string>
+    <string name="prosseguir">1.Clique em abrir\n2.Insira ou retire seu item\n3.Feche a porta do armário\n4.Clique em voltar para finalizar</string>
     <string name="voltar">voltar</string>
     <string name="esqueceu">Esqueceu a senha?</string>
-    <string name="proximo">Selecione o ícone de armário mais próximo no mapa</string>
+    <string name="proximo">Selecione o ícone de armário\nmais próximo no mapa</string>
     <string name="arm_verde">Armário verde - Liberado</string>
     <string name="arm_vermelho">Armário vermelho - Ocupado</string>
-    <string name="selecione">Selecione uma Gaveta\nClique em uma gaveta livre a sua escolha!</string>
+    <string name="selecione">Selecione uma Gaveta\nClique em uma gaveta livre\na sua escolha!</string>
     <string name="dica_mapa">Digite o Endereço, Cidade ou Código Postal</string>
 </resources>

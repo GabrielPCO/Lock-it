@@ -3,7 +3,9 @@ package com.example.gabrielfreitas.nac_1_lockit
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -29,17 +31,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
+        Log.d("MapsActivity: ", "onCreate")
+
         val imageButton = findViewById<ImageButton>(R.id.btn_login)
         imageButton?.setOnClickListener { updateUI() }
 
-        if (!isConnected) {
-            isConnected = intent.getBooleanExtra("etConnected",false)
-            if(isConnected){
-                btn_sign_out.visibility = View.VISIBLE
-            }else{
-                btn_sign_out.visibility = View.GONE
-            }
+        val logButton = findViewById<Button>(R.id.textView6)
+        logButton?.setOnClickListener { updateUI() }
+
+        val sairButton = findViewById<Button>(R.id.btn_sair)
+        sairButton?.setOnClickListener {
+            finish()
+            System.exit(0)
         }
+
+        isConnected()
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -85,10 +91,53 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    /*override fun onResume() {
+        super.onResume()
+        isConnected()
+        Log.d("MapsActivity: ", "onResume")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isConnected()
+        Log.d("MapsActivity: ", "onStart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isConnected()
+        Log.d("MapsActivity: ", "onStop")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("MapsActivity: ", "onPause")
+    }*/
+
     private fun updateUI() {
         //start next activity
         val intent = Intent(this, LogInScreen::class.java)
         startActivity(intent)
+    }
+
+    private fun isConnected(){
+        Log.d("MapsActivity: ", "isConnected")
+
+        isConnected = intent.getBooleanExtra("etConnected",false)
+
+        if(isConnected){
+            btn_sign_out.visibility = View.VISIBLE
+            btn_login.visibility = View.GONE
+            textView6.visibility = View.GONE
+            lucas.visibility = View.VISIBLE
+            btn_sair.visibility = View.GONE
+        }else{
+            btn_sign_out.visibility = View.GONE
+            btn_login.visibility = View.VISIBLE
+            textView6.visibility = View.VISIBLE
+            lucas.visibility = View.GONE
+            btn_sair.visibility = View.VISIBLE
+        }
     }
 
 }
