@@ -40,10 +40,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         logButton?.setOnClickListener { updateUI() }
 
         val sairButton = findViewById<Button>(R.id.btn_sair)
-        sairButton?.setOnClickListener {
-            finish()
-            System.exit(0)
-        }
+        sairButton?.setOnClickListener { updateExit() }
 
         isConnected()
 
@@ -120,6 +117,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         startActivity(intent)
     }
 
+    private fun updateExit(){
+        finish()
+    }
+
     private fun isConnected(){
         Log.d("MapsActivity: ", "isConnected")
 
@@ -138,6 +139,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             lucas.visibility = View.GONE
             btn_sair.visibility = View.VISIBLE
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        System.exit(0)
     }
 
 }
