@@ -10,11 +10,16 @@ import android.widget.Toast
 
 class ScannerQr : AppCompatActivity(){
 
+    private var passwordQr: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
 
         Log.d("ScannerQr","On Create")
+        passwordQr = intent.getStringExtra("password")
+        Log.d("ScannerQr: !!!!!!!!!!!!",passwordQr)
+
         val scanner = IntentIntegrator(this)
         scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
         scanner.setBeepEnabled(false)
@@ -31,9 +36,9 @@ class ScannerQr : AppCompatActivity(){
                     val nextAct1 = Intent(this, SelecionaArmario::class.java)
                     startActivity(nextAct1)
                 } else {
-                    if(result.contents == "SENHA") {
+                    if(result.contents == passwordQr) {
                         Toast.makeText(this, "Abertura Autorizada", Toast.LENGTH_LONG).show()
-                        val nextAct2 = Intent(this, ConectaDireto::class.java)
+                        val nextAct2 = Intent(this, ArmarioAberto::class.java)
                         startActivity(nextAct2)
                     }else {
                         Toast.makeText(this, "QRcode Inválido!", Toast.LENGTH_LONG).show()

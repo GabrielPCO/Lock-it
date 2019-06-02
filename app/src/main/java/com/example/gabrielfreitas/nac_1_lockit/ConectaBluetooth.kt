@@ -1,3 +1,4 @@
+//NÃO ESTÁ SENDO USADO NA VERSÃO FINAL
 package com.example.gabrielfreitas.nac_1_lockit
 
 import android.support.v7.app.AppCompatActivity

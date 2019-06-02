@@ -14,7 +14,7 @@ class ArmarioAberto : AppCompatActivity() {
         setContentView(R.layout.activity_abre_armario)
 
         btn_abrir.setOnClickListener{
-            val nextAct1 =  Intent(this,ConectaDireto::class.java)
+            val nextAct1 =  Intent(this,DestravaArmario::class.java)
             startActivity(nextAct1)
         }
 

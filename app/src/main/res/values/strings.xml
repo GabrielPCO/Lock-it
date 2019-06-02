@@ -7,6 +7,7 @@
     <string name="deslogar">Deslogar</string>
     <string name="refresh">Buscar</string>
     <string name="logar">Logar</string>
+    <string name="carregando">Carregando Armário&#8230;</string>
 
     <string name="email">E-mail (exemplo@exemplo.com.br)</string>
     <string name="password">Senha (Min. 6 caracteres)</string>
@@ -21,7 +22,7 @@
 
     <string name="confirmacao">Confirme seu Armário na Lista Abaixo</string>
     <string name="pronto">Seu armário está pronto!</string>
-    <string name="prosseguir">1.Clique em abrir\n2.Insira ou retire seu item\n3.Feche a porta do armário\n4.Clique em voltar para finalizar</string>
+    <string name="prosseguir">1.Clique em abrir\n2.Insira ou retire seu item\n3.Feche a gaveta do armário\n4.Clique em voltar para finalizar</string>
     <string name="voltar">voltar</string>
     <string name="esqueceu">Esqueceu a senha?</string>
     <string name="proximo">Selecione o ícone de armário\nmais próximo no mapa</string>

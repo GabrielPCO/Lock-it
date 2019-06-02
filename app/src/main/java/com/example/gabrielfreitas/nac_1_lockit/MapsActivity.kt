@@ -72,7 +72,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener {
             /*_: Marker? ->*/
             if(isConnected) {
-                val intent = Intent(this, SelecionaArmario::class.java)
+                val intent = Intent(this, ConectaDireto::class.java)
                 startActivity(intent)
                 true
             }else{
@@ -118,7 +118,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun updateExit(){
-        finish()
+        moveTaskToBack(true)
+        android.os.Process.killProcess(android.os.Process.myPid())
+        System.exit(1)
     }
 
     private fun isConnected(){
@@ -141,9 +143,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
-        System.exit(0)
-    }
+    }*/
 
 }

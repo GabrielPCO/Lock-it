@@ -18,14 +18,14 @@ class SelecionaArmario : AppCompatActivity() {
         imageButton?.setOnClickListener { updateUI() }
 
         armario1.setOnClickListener{
-            val nextAct1 =  Intent(this,ScannerQr::class.java)
+            val nextAct1 =  Intent(this,GeraPassword::class.java)
             startActivity(nextAct1)
         }
         armario2.setOnClickListener{
             toast("Armario Ocupado")
         }
         armario3.setOnClickListener{
-            val nextAct2 =  Intent(this,ScannerQr::class.java)
+            val nextAct2 =  Intent(this,GeraPassword::class.java)
             startActivity(nextAct2)
         }
     }
