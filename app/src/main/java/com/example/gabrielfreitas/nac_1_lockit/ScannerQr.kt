@@ -14,7 +14,6 @@ class ScannerQr : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scanner)
 
         Log.d("ScannerQr","On Create")
         passwordQr = intent.getStringExtra("password")

@@ -26,7 +26,7 @@
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -54,22 +54,22 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".LogInScreen"/>
-        <activity android:name=".ForgotPassword"/>
-        <activity android:name=".RegistrationScreen"/>
+        <activity android:name=".LogInScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ForgotPassword" android:screenOrientation="portrait"/>
+        <activity android:name=".RegistrationScreen" android:screenOrientation="portrait"/>
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".SelecionaArmario" />
-        <activity android:name=".ConectaBluetooth" />
-        <activity android:name=".GeraPassword" />
-        <activity android:name=".DestravaArmario"/>
-        <activity android:name=".AntigoConectaDireto"/>
-        <activity android:name=".CarregandoArmario"/>
-        <activity android:name=".ScannerQr" />
-        <activity android:name=".AbreArmario"/>
-        <activity android:name=".ConectaDireto"/>
-        <activity android:name=".ArmarioAberto"/>
+            android:label="@string/title_activity_maps" android:screenOrientation="portrait"/>
+        <activity android:name=".SelecionaArmario" android:screenOrientation="portrait"/>
+        <activity android:name=".ConectaBluetooth" android:screenOrientation="portrait"/>
+        <activity android:name=".GeraPassword" android:screenOrientation="portrait"/>
+        <activity android:name=".DestravaArmario" android:screenOrientation="portrait"/>
+        <activity android:name=".AntigoConectaDireto" android:screenOrientation="portrait"/>
+        <activity android:name=".CarregandoArmario" android:screenOrientation="portrait"/>
+        <activity android:name=".ScannerQr" android:screenOrientation="portrait"/>
+        <activity android:name=".AbreArmario" android:screenOrientation="portrait"/>
+        <activity android:name=".ConectaDireto" android:screenOrientation="portrait"/>
+        <activity android:name=".ArmarioAberto" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

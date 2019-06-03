@@ -58,13 +58,13 @@ class LogInScreen: AppCompatActivity() {
         email = etEmail?.text.toString()
         password = etPassword?.text.toString()
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-            btn_voltar.visibility = View.GONE
+            //btn_voltar.visibility = View.GONE
             progress.visibility = ProgressBar.VISIBLE
             Log.d(TAG, "Logging in user.")
             mAuth!!.signInWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener(this) { task ->
                         progress.visibility = ProgressBar.INVISIBLE
-                        btn_voltar.visibility = View.VISIBLE
+                        //btn_voltar.visibility = View.VISIBLE
                         if (task.isSuccessful) {
                             // Sign in success, update UI with signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")

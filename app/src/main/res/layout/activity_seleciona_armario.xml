@@ -11,8 +11,8 @@
             android:id="@+id/btn_voltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginLeft="270dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             android:layout_alignBottom="@id/textView"
             android:background="@null"
             android:contentDescription="@string/voltar"
@@ -31,7 +31,7 @@
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/armario1"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/black"
         android:textStyle="bold" />
 
         <ImageView

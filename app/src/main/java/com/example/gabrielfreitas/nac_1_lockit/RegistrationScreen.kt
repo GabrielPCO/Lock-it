@@ -67,7 +67,7 @@ class RegistrationScreen : AppCompatActivity() {
         if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName)
                 && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
-            btn_voltar.visibility = View.GONE
+            //btn_voltar.visibility = View.GONE
             progress.visibility = ProgressBar.VISIBLE
             //mProgressBar!!.setMessage("Registrando Usuário...")
             //mProgressBar!!.show()
@@ -75,7 +75,7 @@ class RegistrationScreen : AppCompatActivity() {
             mAuth!!
                     .createUserWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener(this) { task ->
-                        btn_voltar.visibility = View.VISIBLE
+                        //btn_voltar.visibility = View.VISIBLE
                         progress.visibility = ProgressBar.INVISIBLE
                         //mProgressBar!!.hide()
                         if (task.isSuccessful) {
