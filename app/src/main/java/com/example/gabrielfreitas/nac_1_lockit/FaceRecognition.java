@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -101,6 +102,8 @@ public class FaceRecognition extends AppCompatActivity {
                     @Override
                     public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
                         try {
+                            btnDetect.setVisibility(View.GONE);
+                            btnVoltar.setVisibility(View.GONE);
                             waitingDialog.show();
 
                             FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
@@ -109,12 +112,13 @@ public class FaceRecognition extends AppCompatActivity {
                             Bitmap bitmap = BitmapFactory.decodeFile(savedPhoto.getAbsolutePath());
                             bitmap = Bitmap.createScaledBitmap(bitmap,cameraView.getWidth(),cameraView.getHeight(),false);
                             runFaceDetector(bitmap);
+                            graphicOverlay.clear();
                         } catch (java.io.IOException e) {
                             e.printStackTrace();
                         }
                     }
                 });
-                graphicOverlay.clear();
+
             }
         });
         /*cameraView.setCameraListener(new CameraKitView.CameraListener() {
@@ -173,6 +177,10 @@ public class FaceRecognition extends AppCompatActivity {
             count++;
         }
         waitingDialog.dismiss();
-        Toast.makeText(this, String.format(Locale.US,"%d Face(s) na imagem",count), Toast.LENGTH_SHORT).show();
+        btnDetect.setVisibility(View.VISIBLE);
+        btnVoltar.setVisibility(View.VISIBLE);
+        Toast toast = Toast.makeText(this, String.format(Locale.US,"%d Face(s) na imagem",count), Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, -100);
+        toast.show();
     }
 }
