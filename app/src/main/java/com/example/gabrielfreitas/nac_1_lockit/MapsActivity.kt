@@ -113,8 +113,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun updateUI() {
         //start next activity
-        val intent = Intent(this, LogInScreen::class.java)
+        val intent = Intent(this, FaceRecognition::class.java)
         startActivity(intent)
+        /*val intent = Intent(this, LogInScreen::class.java)
+        startActivity(intent)*/
     }
 
     private fun updateExit(){

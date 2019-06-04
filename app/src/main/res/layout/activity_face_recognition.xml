@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FaceRecognition">
+
+    <Button
+        android:id="@+id/btn_voltar"
+        android:text="@string/voltar"
+        style="@style/viewCustom"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_detectar"
+        android:text="@string/detectar"
+        style="@style/viewCustom"
+        android:layout_above="@id/btn_voltar"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.camerakit.CameraKitView
+        android:id="@+id/camera_view"
+        android:layout_above="@id/btn_detectar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:camera_facing="back"/>
+        <!-- app:camera_facing="front" -->
+
+    <com.example.gabrielfreitas.nac_1_lockit.Helper.GraphicOverlay
+        android:id="@+id/graphic_overlay"
+        android:layout_above="@id/btn_detectar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

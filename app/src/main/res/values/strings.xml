@@ -8,6 +8,7 @@
     <string name="refresh">Buscar</string>
     <string name="logar">Logar</string>
     <string name="carregando">Carregando Armário&#8230;</string>
+    <string name="detectar">Detectar</string>
 
     <string name="email">E-mail (exemplo@exemplo.com.br)</string>
     <string name="password">Senha (Min. 6 caracteres)</string>
