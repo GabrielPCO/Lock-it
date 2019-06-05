@@ -31,4 +31,5 @@
     <string name="arm_vermelho">Armário vermelho - Ocupado</string>
     <string name="selecione">Selecione uma Gaveta\nClique em uma gaveta livre\na sua escolha!</string>
     <string name="dica_mapa">Digite o Endereço, Cidade ou Código Postal</string>
+    <string name="face_detection">Clique em Detectar\npara fazer login</string>
 </resources>

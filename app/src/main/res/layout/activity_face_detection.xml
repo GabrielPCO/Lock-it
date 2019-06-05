@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".FaceRecognition">
+    tools:context=".FaceDetection">
 
     <TextView
         android:layout_marginTop="20dp"
@@ -54,22 +54,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:camera_facing="back"/>
-        <!-- app:camera_facing="front" -->
+    <!-- app:camera_facing="front" -->
 
     <com.example.gabrielfreitas.nac_1_lockit.Helper.GraphicOverlay
-    android:id="@+id/graphic_overlay"
-    android:layout_below="@id/textView"
-    android:layout_above="@id/btn_detectar"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/btn_detectar"
+        android:id="@+id/graphic_overlay"
         android:layout_below="@id/textView"
-        android:contentDescription="@string/app_name"
-        android:visibility="visible" />
+        android:layout_above="@id/btn_detectar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
