@@ -47,13 +47,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.camerakit.CameraKitView
+    <com.wonderkiln.camerakit.CameraView
         android:id="@+id/camera_view"
         android:layout_below="@id/textView"
         android:layout_above="@id/btn_detectar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:camera_facing="back"/>
+        />
     <!-- app:camera_facing="front" -->
 
     <com.example.gabrielfreitas.nac_1_lockit.Helper.GraphicOverlay

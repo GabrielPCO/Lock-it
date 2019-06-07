@@ -58,7 +58,6 @@ class LogInScreen: AppCompatActivity() {
         email = etEmail?.text.toString()
         password = etPassword?.text.toString()
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-            //btn_voltar.visibility = View.GONE
             progress.visibility = ProgressBar.VISIBLE
             Log.d(TAG, "Logging in user.")
             mAuth!!.signInWithEmailAndPassword(email!!, password!!)
@@ -68,12 +67,12 @@ class LogInScreen: AppCompatActivity() {
                         if (task.isSuccessful) {
                             // Sign in success, update UI with signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
-                            val intent2 = Intent(this, MapsActivity::class.java)
-                            intent2.putExtra("etConnected",true)
+                            val intent5 = Intent(this, MapsActivity::class.java)
+                            intent5.putExtra("etConnected",true)
                             etConnected=true
-                            intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             Log.d("LogInScreen","TERMINADO")
-                            startActivity(intent2)
+                            startActivity(intent5)
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.exception)

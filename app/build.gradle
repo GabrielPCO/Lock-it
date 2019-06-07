@@ -10,7 +10,7 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.example.gabrielfreitas.nac_1_lockit"
-        minSdkVersion 23
+        minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -43,8 +43,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.anko:anko-common:0.8.3"
     implementation 'com.android.support:gridlayout-v7:28.0.0'
-    implementation 'com.camerakit:camerakit:1.0.0-beta3.4'
+    implementation 'com.wonderkiln:camerakit:0.13.2'
     implementation 'com.camerakit:jpegkit:0.1.0'
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.4'
     implementation 'com.google.firebase:firebase-ml-vision:20.0.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.github.eddydn:EDMTDevCognitiveFace:1.7'

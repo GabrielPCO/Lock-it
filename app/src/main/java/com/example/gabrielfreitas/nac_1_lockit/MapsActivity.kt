@@ -104,16 +104,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onStop()
         isConnected()
         Log.d("MapsActivity: ", "onStop")
-    }
+    }*/
 
     override fun onPause() {
         super.onPause()
         Log.d("MapsActivity: ", "onPause")
-    }*/
+    }
 
     private fun updateUI() {
         //start next activity
-        val intent = Intent(this, FaceRecognition::class.java)
+        val intent = Intent(this, FaceReconKot2::class.java)
         startActivity(intent)
         /*val intent = Intent(this, LogInScreen::class.java)
         startActivity(intent)*/
@@ -133,15 +133,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         if(isConnected){
             btn_sign_out.visibility = View.VISIBLE
             btn_login.visibility = View.GONE
+            textView5.visibility= View.VISIBLE
             textView6.visibility = View.GONE
             lucas.visibility = View.VISIBLE
             btn_sair.visibility = View.GONE
+            dica.visibility = View.GONE
+            arrow.visibility = View.GONE
         }else{
             btn_sign_out.visibility = View.GONE
             btn_login.visibility = View.VISIBLE
             textView6.visibility = View.VISIBLE
+            textView5.visibility= View.GONE
             lucas.visibility = View.GONE
             btn_sair.visibility = View.VISIBLE
+            dica.visibility = View.VISIBLE
+            arrow.visibility = View.VISIBLE
         }
     }
 

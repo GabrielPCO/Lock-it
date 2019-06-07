@@ -33,7 +33,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="com.example.gabrielfreitas.nac_1_lockit.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -96,7 +96,10 @@
         <activity android:name=".AbreArmario" android:screenOrientation="portrait"/>
         <activity android:name=".ConectaDireto" android:screenOrientation="portrait"/>
         <activity android:name=".ArmarioAberto" android:screenOrientation="portrait"/>
-        <!--activity android:name=".FaceDetection" android:screenOrientation="portrait"/-->
+        <activity android:name=".FaceDetection" android:screenOrientation="portrait"/>
+        <activity android:name=".FaceRecon" android:screenOrientation="portrait"/>
+        <activity android:name=".FaceReconKot" android:screenOrientation="portrait"/>
+        <activity android:name=".FaceReconKot2" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

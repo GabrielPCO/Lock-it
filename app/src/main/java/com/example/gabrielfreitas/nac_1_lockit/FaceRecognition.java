@@ -2,21 +2,25 @@ package com.example.gabrielfreitas.nac_1_lockit;
 
 //import android.Manifest;
 //import android.app.Activity;
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 //import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 //import android.graphics.BitmapFactory;
 //import android.graphics.Rect;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 //import android.os.Environment;
 import android.os.Environment;
 import android.provider.MediaStore;
 //import android.support.annotation.NonNull;
 //import android.support.annotation.Nullable;
+import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 //import android.view.Gravity;
@@ -42,8 +46,8 @@ import android.widget.Toast;
 
 //import org.jetbrains.annotations.NotNull;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+//import java.io.ByteArrayInputStream;
+//import java.io.ByteArrayOutputStream;
 //import java.io.File;
 //import java.io.FileOutputStream;
 import java.io.File;
@@ -66,6 +70,8 @@ import edmt.dev.edmtdevcognitiveface.FaceServiceRestClient;
 import edmt.dev.edmtdevcognitiveface.Rest.ClientException;
 import edmt.dev.edmtdevcognitiveface.Rest.Utils;
 
+import static android.os.Environment.getExternalStoragePublicDirectory;
+
 public class FaceRecognition extends AppCompatActivity {
 
     private final String API_KEY="1a5d1ac1d39746b0942251158fcfb5bb";
@@ -81,8 +87,9 @@ public class FaceRecognition extends AppCompatActivity {
     Button btnDetect;
     Button btnVoltar;
     TextView txtFaceDetect;
+    String pathToFile;
 
-    private static final int REQUEST_CAPTURE_IMAGE = 100;
+    private static final int REQUEST_CAPTURE_IMAGE = 1;
 
     //AlertDialog waitingDialog;
     Face[] faceDetected;
@@ -282,6 +289,10 @@ public class FaceRecognition extends AppCompatActivity {
         txtFaceDetect = findViewById(R.id.textView);
         img_view = findViewById(R.id.imageView);
 
+        if(Build.VERSION.SDK_INT>=23){
+            requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+        }
+
 
         /*bitmap = BitmapFactory.decodeResource(getResources(),)
         img_view = findViewById(R.id.imageView);
@@ -304,13 +315,16 @@ public class FaceRecognition extends AppCompatActivity {
             public void onClick(View v)
             {
 
-                Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                dispatchPictureTakerAction();
+
+                /*Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 String pictureName = getPictureName();
                 File imageFile = new File(pictureDirectory,pictureName);
                 Uri pictureUri = FileProvider.getUriForFile(FaceRecognition.this,  "com.example.gabrielfreitas.nac_1_lockit.fileprovider", imageFile);
                 pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,pictureUri);
                 pictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                Log.d("FaceRecognition: !!!!!!","Clicou Botao Detect");
                 startActivityForResult(pictureIntent, REQUEST_CAPTURE_IMAGE);
                 /*if(pictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(pictureIntent,
@@ -367,13 +381,59 @@ public class FaceRecognition extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode == RESULT_CANCELED) {
+                if (resultCode == REQUEST_CAPTURE_IMAGE) {
+                    Bitmap bitmap = BitmapFactory.decodeFile(pathToFile);
+                    img_view.setImageBitmap(bitmap);
+                    Log.d("FaceRecognition: !!!!!!", "Bitmap para ImageView");
+                }
+            } else {
+                Log.d("FaceRecognition: !!!!!!", "Bitmap para ImageView ERROR");
+            }
+    }
+
+    private void dispatchPictureTakerAction() {
+
+        Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(pictureIntent.resolveActivity(getPackageManager())!=null){
+
+                pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                String pictureName = getPictureName();
+                File imageFile = new File(pictureDirectory,pictureName);
+                Uri pictureUri = FileProvider.getUriForFile(FaceRecognition.this,  "com.example.gabrielfreitas.nac_1_lockit.fileprovider", imageFile);
+                pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,pictureUri);
+                pictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                Log.d("FaceRecognition: !!!!!!","Clicou Botao Detect");
+                //setResult(RESULT_OK,pictureIntent);
+                startActivityForResult(pictureIntent, REQUEST_CAPTURE_IMAGE);
+
+
+        }
+    }
+
+    /*private File createPhotoFile(){
+        String name = new SimpleDateFormat("yyyyMMdd_HHmmss",Locale.US).format(new Date());
+        File storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = null;
+        try{
+            image = File.createTempFile(name,".jpg", storageDir);
+        }catch (IOException e){
+            Log.d("mylog","Excep : " + e.toString());
+        }
+        return image;
+    }*/
+
     private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
         String timestamp = sdf.format(new Date());
         return "Lock.it" +timestamp+".jpg";
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
 
@@ -402,9 +462,9 @@ public class FaceRecognition extends AppCompatActivity {
                 ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream2.toByteArray());
                 new detectTask().execute(inputStream);
                 Log.d("FaceRecognition: !!!!!!","Fez OnImage");*/
-            }
-        }
-    }
+           // }
+        //}
+    //}
 
     /*private void runFaceDetector(Bitmap bitmap) {
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
